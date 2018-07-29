@@ -1,0 +1,56 @@
+<!--index.wxml-->
+<view class="container">
+
+  <view class='city some' bindtap='cityChange'>
+    <view wx:if="{{basic.parent_city !== basic.location}}">{{ basic.parent_city +basic.location || '定位中'}}</view>
+    <view wx:else>{{ basic.location || '定位中'}}</view>
+  </view>
+
+  <view class='update some'>
+    <view>{{'更新于' + update.loc}}</view>
+  </view>
+
+  <view class='now some'>
+    <!-- 温度，默认单位：摄氏度 -->
+    <view class='tmp'>{{now.tmp + '℃'}}</view>
+    <view>{{now.cond_txt}}</view>
+    <!-- 体感温度，默认单位：摄氏度  -->
+    <view>{{'体感温度' + ' ' + now.fl + '℃'}}</view>
+    <view>{{now.wind_dir + ' ' + now.wind_sc + '级'}}</view>
+    <view>{{'相对湿度' + now.hum + '% | ' + '降水量' + now.pcpn+ 'mm'}}</view>
+  </view>
+
+  <view class="forecast some">
+    <view>未来三天天气预报</view>
+    <view class='items' wx:for="{{dailyForecast}}" wx:key="item">
+
+      <view>{{item.date}}</view>
+      <view wx:if="{{item.cond_txt_d === item.cond_txt_n}}">{{item.cond_txt_d}}</view>
+      <view wx:else>{{item.cond_txt_d + '转' + item.cond_txt_n}}</view>
+      <!-- <image src="../../img/icon-heweather/{{item.cond_code_d}}.png"></image> -->
+      <view>{{ item.tmp_min + '℃' + '/' + item.tmp_max + '℃'}}</view>
+
+    </view>
+
+  </view>
+
+  <view class='livestyle some'>
+    <view>生活指数</view>
+    <view wx:for="{{lifestyle}}" wx:key="item">
+      <view class='items'>
+        <text>{{item.type}}</text>
+        <text class='right'>{{item.brf}}</text>
+        <view>{{item.txt}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view bindtap='goTop'>
+    <!-- <view class='cityChange' bindtap='cityChange'>切换城市</view> -->
+    <view class='tips'>点击顶部的城市，可以切换城市哦~</view>
+    <view class='tips'>试试点击下我们，可以返回顶部哦~</view>    
+    <view class='tips'>天气数据由 和风天气 免费提供</view>
+  </view>
+
+
+</view>

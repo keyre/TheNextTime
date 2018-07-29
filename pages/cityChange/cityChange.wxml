@@ -1,0 +1,17 @@
+<view class='container'>
+
+  <view class='search'>
+    <input placeholder='搜索城市' bindinput="bindKeyInput"></input>
+  </view>
+  
+  <!-- <view>{{inputValue}}</view> -->
+
+  <view class='cities' wx:if="{{inputValue}}">
+    <view wx:for="{{cities}}" wx:key="{{item}}">
+      <view class='item'>
+        <view bindtap='choose' data-item='{{item}}'>{{item.location}}</view>
+      </view>
+    </view>
+  </view>
+
+</view>

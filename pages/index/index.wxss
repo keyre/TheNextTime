@@ -1,0 +1,61 @@
+/**index.wxss**/
+page {
+  -webkit-font-smoothing: antialiased;
+  font-family: "PingHei","Helvetica Neue","Helvetica","Arial","Verdana","sans-serif";
+}
+.container{
+  padding: 15rpx 15rpx;
+  background-color: grey;
+  color: #fff;
+}
+.some{
+  margin: 15rpx auto;
+}
+
+.update{
+  font-size: 80%;
+}
+
+.now{
+  text-align: center;
+  font-size: 85%;
+}
+
+.now .tmp{
+  font-size: 350%;
+}
+
+.forecast{
+  display: flex;
+  flex-direction: column;
+  padding-left: 0;
+}
+.forecast .items{
+  display: flex;
+  justify-content: space-between;
+}
+.forecast .items view{
+  margin: 0 20rpx;
+}
+.livestyle .items{
+  margin-top: 10rpx;
+  border: 1px rgb(101, 4, 146) solid;
+  border-radius: 15rpx;
+  background-color: rgb(72, 74, 75);
+  padding: 10rpx;
+  font-size: 90%;
+}
+.livestyle .right{
+  float: right
+}
+
+.cityChange{
+  position: fixed;
+  top: 0;
+  left: 10rpx;
+  zoom: 1;
+  font-size: 80%;
+}
+.tips{
+  font-size: 80%
+}

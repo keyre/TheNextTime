@@ -1,0 +1,13 @@
+{
+  "pages":[
+      "pages/index/index",
+    "pages/cityChange/cityChange"
+
+  ],
+  "window":{
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#888888",
+    "navigationBarTitleText": "SunnyDay",   
+    "navigationBarTextStyle":"withe"  
+  }
+}
