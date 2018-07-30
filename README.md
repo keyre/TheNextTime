@@ -14,5 +14,9 @@
 
 >部分功能参考了 https://github.com/myvin/quietweather
 
+>也可以看下这篇文章 https://www.cnblogs.com/xuanbiyijue/p/7980010.html
+
+>在app.js 设置自己申请的key就可以使用啦~
+
 ### 小程序码
-![image](/des/ma.jpg)
+<div align=center>![image](/des/ma.jpg)

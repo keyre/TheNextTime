@@ -1,5 +1,7 @@
-
-var key = 'dcff25de41ba45c4903ccbf5f7ae645e';
+//cityChange.js
+//获取应用实例
+const app = getApp()
+let globalData = app.globalData
 
 Page({
   data: {
@@ -18,13 +20,12 @@ Page({
     if (this.inputValue != ''){
       this.getCity();
     }
-    // console.log(this.inputValue);
-    
+    // console.log(this.inputValue);  
   },
 
   //查询城市
   getCity: function() {
-    let cityURL = 'https://search.heweather.com/find?location=' + this.inputValue + '&key=dcff25de41ba45c4903ccbf5f7ae645e&group=cn';
+    let cityURL = 'https://search.heweather.com/find?location=' + this.inputValue + '&key=' + globalData.key + '&group=cn';
     wx.request({
       url: cityURL,
       success: (res) => {
@@ -39,8 +40,6 @@ Page({
             icon: 'none',
           })
         }
-       
-
       }
     })
   },

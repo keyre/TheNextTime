@@ -1,25 +1,24 @@
 //index.js
 //获取应用实例
 const app = getApp()
-var key = 'dcff25de41ba45c4903ccbf5f7ae645e';
-var id = 'HE1807271458481534';
-var typeDes = {
-  'comf': '舒适度指数',
-  'cw': '洗车指数',
-  'drsg': '穿衣指数',
-  'flu': '感冒指数',
-  'sport': '运动指数',
-  'trav': '旅游指数',
-  'uv': '紫外线指数',
-  'air': '空气污染扩散条件指数',
-  'ac': '空调开启指数',
-  'ag': '过敏指数',
-  'gl': '太阳镜指数',
-  'mu': '化妆指数',
-  'airc': '晾晒指数',
-  'ptfc': '交通指数',
-  'fisin': '钓鱼指数',
-  'spi': '防晒指数'
+let globalData = app.globalData
+let typeDes = {
+  comf: '舒适度指数',
+  cw: '洗车指数',
+  drsg: '穿衣指数',
+  flu: '感冒指数',
+  port: '运动指数',
+  trav: '旅游指数',
+  uv: '紫外线指数',
+  air: '空气污染扩散条件指数',
+  ac: '空调开启指数',
+  ag: '过敏指数',
+  gl: '太阳镜指数',
+  mu: '化妆指数',
+  airc: '晾晒指数',
+  ptfc: '交通指数',
+  isin: '钓鱼指数',
+  spi: '防晒指数'
 }
 
 Page({
@@ -108,7 +107,7 @@ Page({
 
   //天气
   getNowWeather: function() {
-    var apiURL = 'https://free-api.heweather.com/s6/weather?' + 'location=' + this.longitude + ',' + this.latitude + '&key=' + key;
+    let apiURL = 'https://free-api.heweather.com/s6/weather?' + 'location=' + this.longitude + ',' + this.latitude + '&key=' + globalData.key;
     wx.request({
       url: apiURL,
       success: (res) => {
@@ -116,9 +115,9 @@ Page({
 
         wx.hideLoading();
 
-        if (res.data.HeWeather6["0"].status == 'ok'){
+        if (res.data.HeWeather6["0"].status == 'ok') {
           // 生活指数
-          var lifestyle = res.data.HeWeather6["0"].lifestyle;
+          let lifestyle = res.data.HeWeather6["0"].lifestyle;
           // 替换和风天气返回的生活指数的type
           for (let i = 0, len = lifestyle.length; i < len; i++) {
             for (let key in typeDes) {
@@ -127,7 +126,6 @@ Page({
               }
             }
           }
-
           this.setData({
             // 基础信息
             basic: res.data.HeWeather6["0"].basic,
@@ -140,13 +138,12 @@ Page({
             // 接口更新时间
             update: res.data.HeWeather6["0"].update
           })
-        }else{
+        } else {
           wx.showToast({
             title: '抱歉，返回数据不正常...',
             icon: 'none',
           })
         }
-
       },
       fail: (res) => {
         wx.showToast({
@@ -164,12 +161,12 @@ Page({
     })
   },
 
-  goTop: function(){
+  goTop: function() {
     // 回滚top
     wx.pageScrollTo({
       scrollTop: 0,
       duration: 300
     })
   }
-  
+
 })
