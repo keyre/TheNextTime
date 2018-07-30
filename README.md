@@ -19,4 +19,4 @@
 >在app.js 设置自己申请的key就可以使用啦~
 
 ### 小程序码
-<div align=center>![image](/des/ma.jpg)
+![image](/des/ma.jpg)
