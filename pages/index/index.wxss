@@ -1,4 +1,5 @@
 /**index.wxss**/
+/**test**/
 page {
   -webkit-font-smoothing: antialiased;
   font-family: "PingHei","Helvetica Neue","Helvetica","Arial","Verdana","sans-serif";
